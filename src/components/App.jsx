@@ -1,16 +1,23 @@
+import { Header } from "./Header";
+import '../index.css';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HomePage } from "pages/HomePage";
+import { ContactDetails } from "pages/ContactDetails";
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <Router>
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900 ">
+        <Header />
+        <main className="p-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/contact/:id" element={<ContactDetails />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+
+
   );
 };
